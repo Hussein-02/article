@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $id = $_GET['id'];
         $question = $Question->find($id);
 
-        if ($questionData) {
-            echo json_encode(["success" => true, "question" => $questionData]);
+        if ($question) {
+            echo json_encode(["success" => true, "question" => $question]);
         } else {
             echo json_encode(["success" => false, "message" => "Question not found"]);
         }

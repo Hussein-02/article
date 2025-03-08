@@ -40,7 +40,7 @@ class QuestionSkeleton
         return $this->answer;
     }
 
-    public function setEmail($answer)
+    public function setAnswer($answer)
     {
         $this->answer = $answer;
     }
