@@ -1,7 +1,8 @@
 <?php
 
-require "./QuestionSkeleton.php";
-require "../connection/connection.php";
+require __DIR__ . '/QuestionSkeleton.php';
+require __DIR__ . '/../connection/connection.php';
+
 
 class Question extends QuestionSkeleton
 {
@@ -31,6 +32,9 @@ class Question extends QuestionSkeleton
             $stmt->execute();
 
             $this->setId($this->conn->insert_id);
+
+            $stmt->close();
+            return true;
         }
     }
 
@@ -39,11 +43,17 @@ class Question extends QuestionSkeleton
         $sql = "SELECT * FROM questions WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $id);
+        $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
 
         if ($row) {
-            return new Question($row['id'], $row['question'], $row['answer']);
+            $question = new Question($this->conn);
+            $question->setId($row['id']);
+            $question->setQuestion($row['question']);
+            $question->setAnswer($row['answer']);
+
+            return $question;
         }
         return null;
     }
@@ -54,7 +64,12 @@ class Question extends QuestionSkeleton
         $result = $this->conn->query($sql);
         $questions = [];
         while ($row = $result->fetch_assoc()) {
-            $questions[] = new Question($row['id'], $row['question'], $row['answer']);
+            $question = new Question($this->conn);
+            $question->setId($row['id']);
+            $question->setQuestion($row['question']);
+            $question->setAnswer($row['answer']);
+
+            $questions[] = $question;
         }
         return $questions;
     }

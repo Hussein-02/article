@@ -1,7 +1,7 @@
 <?php
 
-require './UserSkeleton.php';
-require '../connection/connection.php';
+require __DIR__ . '/UserSkeleton.php';
+require __DIR__ . '/../connection/connection.php';
 
 class User extends UserSkeleton
 {
@@ -38,6 +38,9 @@ class User extends UserSkeleton
 
             //set object's id to the created one
             $this->setId($this->conn->insert_id);
+
+            $stmt->close();
+            return true;
         }
     }
 
@@ -47,11 +50,18 @@ class User extends UserSkeleton
         $sql = "SELECT * FROM users WHERE email = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $email);
+        $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
 
         if ($row) {
-            return new User($row['id'], $row['fullname'], $row['email'], $row['password']);
+            $user = new User($this->conn);
+            $user->setId($row['id']);
+            $user->setFullName($row['fullname']);
+            $user->setEmail($row['email']);
+            $user->setPassword($row['password']);
+
+            return $user;
         }
         return null;
     }

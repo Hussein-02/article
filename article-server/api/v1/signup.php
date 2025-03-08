@@ -1,7 +1,6 @@
 <?php
 
 include "../../connection/connection.php";
-include_once "../../utils.php";
 include "../../models/User.php";
 
 $key = "12345";

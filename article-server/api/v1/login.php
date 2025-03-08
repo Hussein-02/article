@@ -42,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $existingUser = $user->findByEmail($email);
 
     if ($existingUser) {
-        //check if password is correct
         if (hash('sha256', $password) === $existingUser->getPassword()) {
             $form = [
                 "id" => $existingUser->getId(),
