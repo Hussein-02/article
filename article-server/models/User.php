@@ -55,5 +55,12 @@ class User extends UserSkeleton
     public static function all()
     {
         global $conn;
+        $sql = "SELECT * FROM users";
+        $result = $conn->query($sql);
+        $users = [];
+        while ($row = $result->fetch_assoc()) {
+            $users[] = new User($row['id'], $row['fullname'], $row['email'], $row['password']);
+        }
+        return $users;
     }
 }
