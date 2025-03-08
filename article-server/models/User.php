@@ -63,4 +63,15 @@ class User extends UserSkeleton
         }
         return $users;
     }
+
+    //to delete the user
+    public function delete()
+    {
+        global $conn;
+        $id = $this->getId();
+        $sql = "DELETE FROM users WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+    }
 }
