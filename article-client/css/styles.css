@@ -58,6 +58,7 @@ body {
   border: 2px solid blue;
   border-radius: 10px;
   margin-top: 10px;
+  align-self: center;
 }
 
 .login-input {
@@ -97,9 +98,14 @@ body {
   }
 
   .login-input {
-    margin-left: 100px;
+    /* margin-left: 100px; */
+    width: 100%;
   }
   .login-input > input {
     width: 80%;
+  }
+
+  .login-input label {
+    margin-left: 10%;
   }
 }
