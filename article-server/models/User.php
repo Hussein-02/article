@@ -5,7 +5,7 @@ require '../connection/connection.php';
 
 class User extends UserSkeleton
 {
-
+    //create or update user
     public function save()
     {
         global $conn;
@@ -33,5 +33,27 @@ class User extends UserSkeleton
             //set object's id to the created one
             $this->setId($conn->insert_id);
         }
+    }
+
+    //find user by id
+    public static function find($id)
+    {
+        global $conn;
+        $sql = "SELECT * FROM users WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        if ($row) {
+            return new User($row['id'], $row['fullname'], $row['email'], $row['password']);
+        }
+        return null;
+    }
+
+    //get all users
+    public static function all()
+    {
+        global $conn;
     }
 }
