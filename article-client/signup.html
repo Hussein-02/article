@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/utilities.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Wallet</title>
+  </head>
+
+  <body>
+    <h1 class="logo">WALLET</h1>
+    <div class="signup-section">
+      <h1>Sign Up</h1>
+      <form class="login-form" id="signupForm">
+        <div class="login-input">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" />
+          <!-- placeholder="example@gmail.com" -->
+        </div>
+
+        <div class="login-input">
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" name="phone" />
+          <!-- placeholder="example@gmail.com" -->
+        </div>
+
+        <div class="login-input">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" />
+          <!-- placeholder="example@gmail.com" -->
+        </div>
+
+        <div class="login-input">
+          <label for="password">Password</label>
+          <input type="text" id="password" name="password" />
+        </div>
+
+        <input type="submit" value="signup" />
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="/article/article-client/js/signup.js"></script>
+  </body>
+</html>
