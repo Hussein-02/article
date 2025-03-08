@@ -63,12 +63,12 @@ class UserSkeleton
         //implement
     }
 
-    public static function find($id)
+    public function find($id)
     {
         //implement
     }
 
-    public static function all()
+    public function all()
     {
         //implement
     }
