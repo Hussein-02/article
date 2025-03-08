@@ -13,14 +13,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $question = $Question->find($id);
 
         if ($question) {
-            echo json_encode(["success" => true, "question" => $question]);
+            echo json_encode(["success" => true, "question" => $question->getQuestion(), "answer" => $question->getAnswer()]);
         } else {
             echo json_encode(["success" => false, "message" => "Question not found"]);
         }
     } else {
         $questions = $Question->all();
         if ($questions) {
-            echo json_encode(["success" => true, "questions" => $questions]);
+            $QuestionsList = [];
+            foreach ($questions as $question) {
+                $QuestionsList[] = [
+                    "question" => $question->getQuestion(),
+                    "answer" => $question->getAnswer()
+                ];
+            }
+
+            echo json_encode([
+                "success" => true,
+                "questions" => $QuestionsList
+            ]);
         } else {
             echo json_encode(["success" => false, "message" => "No questions found"]);
         }
