@@ -41,12 +41,12 @@ class User extends UserSkeleton
         }
     }
 
-    //find user by id
-    public function find($id)
+    //find user by email
+    public function findByEmail($email)
     {
-        $sql = "SELECT * FROM users WHERE id = ?";
+        $sql = "SELECT * FROM users WHERE email = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("s", $email);
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
 

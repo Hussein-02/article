@@ -63,7 +63,7 @@ class UserSkeleton
         //implement
     }
 
-    public function find($id)
+    public function findByEmail($email)
     {
         //implement
     }
