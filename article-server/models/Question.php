@@ -32,6 +32,9 @@ class Question extends QuestionSkeleton
             $stmt->execute();
 
             $this->setId($this->conn->insert_id);
+
+            $stmt->close();
+            return true;
         }
     }
 

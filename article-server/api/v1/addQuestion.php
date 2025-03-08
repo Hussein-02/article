@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Question->setAnswer($answer);
 
     if ($Question->save()) {
-        echo json_encode(["success" => true, "question" => $Question]);
+        echo json_encode(["success" => true, "question" => $Question->getQuestion(), "answer" => $Question->getAnswer()]);
     } else {
         echo json_encode(["success" => false, "message" => "Failed to add question"]);
     }
