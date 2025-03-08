@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="./css/styles.css" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Wallet</title>
+    <title>Article</title>
     <!-- navbar -->
     <nav class="flex navbar">
       <h1 class="logo">ARTICLE</h1>
@@ -21,6 +21,19 @@
   </head>
 
   <body>
-    
+    <div class="search-container">
+      <input
+        class="search-bar"
+        onkeyup="filterQuestions()"
+        type="text"
+        name="search"
+        placeholder="Search.."
+      />
+    </div>
 
+    <div id="question-cards" class="cards-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/article/article-client/js/home.js"></script>
+  </body>
 </html>
