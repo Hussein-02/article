@@ -172,13 +172,14 @@ body {
   /* flex-wrap: wrap; */
   flex-direction: column;
   justify-content: center;
+  width: 80%;
   gap: 20px;
   padding: 20px;
 }
 
 .question-card {
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid blue;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
