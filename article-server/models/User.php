@@ -55,7 +55,13 @@ class User extends UserSkeleton
         $row = $result->fetch_assoc();
 
         if ($row) {
-            return new User($row['id'], $row['fullname'], $row['email'], $row['password']);
+            $user = new User($this->conn);
+            $user->setId($row['id']);
+            $user->setFullName($row['fullname']);
+            $user->setEmail($row['email']);
+            $user->setPassword($row['password']);
+
+            return $user;
         }
         return null;
     }
