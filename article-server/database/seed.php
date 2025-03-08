@@ -1,6 +1,7 @@
 <?php
 
-require_once '../connection/connection.php';
+//i had to require it like this to work in cmd
+require_once __DIR__ . '/../connection/connection.php';
 
 function seed_database($conn)
 {
