@@ -40,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new User($conn);
 
     $existingUser = $user->findByEmail($email);
-    echo $existingUser->getId();
 
     if ($existingUser) {
         if (hash('sha256', $password) === $existingUser->getPassword()) {
