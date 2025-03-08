@@ -53,5 +53,23 @@ class UserSkeleton
     }
 
     //crud methods to be implemented in model
+    public function save()
+    {
+        //implement
+    }
 
+    public static function find($id)
+    {
+        //implement
+    }
+
+    public static function all()
+    {
+        //implement
+    }
+
+    public function delete()
+    {
+        //implement
+    }
 }
