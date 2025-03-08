@@ -73,10 +73,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 600px;
-  height: 600px;
+  width: 60vw;
+  height: 50vw;
   background-color: white;
   border: 2px solid blue;
+  max-width: 600px;
+  max-height: 489px;
   text-align: center;
 }
 
@@ -113,7 +115,6 @@ body {
   }
 
   .login-input {
-    /* margin-left: 100px; */
     width: 100%;
   }
   .login-input > input {

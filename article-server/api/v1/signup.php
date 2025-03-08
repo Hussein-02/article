@@ -52,7 +52,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user->setPassword($password);
 
     if ($user->save()) {
-        echo json_encode(["success" => true, "message" => "User registered successfully", "user" => [
+        $token_payload = [
+            "id" => $user->getId(),
+            "fullname" => $user->getFullName(),
+            "email" => $user->getEmail(),
+            "exp" => time() + 60 * 60
+        ];
+
+        $token = generate_jwt($token_payload, $key);
+
+        echo json_encode(["success" => true, "message" => "User registered successfully", "token" => $token, "user" => [
             "id" => $user->getId(),
             "fullname" => $user->getFullName(),
             "email" => $user->getEmail()
