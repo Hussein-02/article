@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const password = document.getElementById("password").value;
     try {
       const response = await axios.post(
-        "http://localhost/article/article-server/api/v1/login.php",
+        "http://15.188.75.137/article/article-server/api/v1/login.php",
         {
           email: email,
           password: password,

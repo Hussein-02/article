@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       const response = await axios.post(
-        "http://localhost/article/article-server/api/v1/signup.php",
+        "http://15.188.75.137/article/article-server/api/v1/signup.php",
         {
           fullname: fullname,
           email: email,

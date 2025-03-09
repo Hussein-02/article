@@ -12,8 +12,8 @@ function run_migration($conn)
     );
     ";
 
-    if ($conn->query($sql) == TRUE) {
-        echo "Questions table created successfullu!";
+    if ($conn->query($sql) === TRUE) {
+        echo "Questions table created successfully!";
     } else {
         echo "Error creating table";
     }
