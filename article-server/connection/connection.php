@@ -1,8 +1,8 @@
 <?php
 
 $server_name = "localhost";
-$username = "root";
-$password = "";
+$username = "hussein";
+$password = "12345678";
 $db_name = "article_project";
 
 $conn = new mysqli($server_name, $username, $password, $db_name);
@@ -13,3 +13,5 @@ if ($conn->connect_error) {
 
 // username in ec2:hussein
 // password in ec2:12345678
+
+//localhost;$username="root";$password=""
