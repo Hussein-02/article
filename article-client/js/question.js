@@ -1,20 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("#signupForm");
+  const form = document.querySelector("#questionForm");
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const fullname = document.getElementById("fullname").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
+    const question = document.getElementById("question").value;
+    const answer = document.getElementById("answer").value;
     try {
       const response = await axios.post(
-        "http://15.188.75.137/api/v1/signup.php",
+        "http://15.188.75.137/api/v1/addQuestion.php",
         {
-          fullname: fullname,
-          email: email,
-          password: password,
+          question: question,
+          answer: answer,
         },
         {
           headers: {
@@ -24,15 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       if (response.data.success) {
-        const token = response.data.token;
-        localStorage.setItem("token", token);
-
         window.location.href = "/home.html";
       } else {
         alert(response.data.message);
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("There wan an error!", error);
+      alert("Login failed. Please try again.");
     }
   });
 });

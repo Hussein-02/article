@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Article</title>
+  </head>
+
+  <body>
+    <h1 class="logo">ARTICLE</h1>
+    <div class="login-section">
+      <h1>Add Question</h1>
+      <form class="login-form" id="questionForm">
+        <div class="login-input">
+          <label for="question">Question</label>
+          <input type="text" id="question" name="question" />
+        </div>
+
+        <div class="login-input">
+          <label for="answer">Answer</label>
+          <input type="answer" id="answer" name="answer" />
+        </div>
+
+        <input type="submit" value="Submit" class="login-btn" />
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/question.js"></script>
+    <script src="/js/auth.js"></script>
+  </body>
+</html>
