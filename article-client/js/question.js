@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const answer = document.getElementById("answer").value;
     try {
       const response = await axios.post(
-        "http://15.188.75.137/api/v1/addQuestion.php",
+        "http://localhost/article/article-server/api/v1/addQuestion.php",
         {
           question: question,
           answer: answer,
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       if (response.data.success) {
-        window.location.href = "/home.html";
+        window.location.href = "./home.html";
       } else {
         alert(response.data.message);
       }

@@ -1,7 +1,10 @@
 //to get questions using api
 async function fetchQuestions() {
   try {
-    const response = await axios.get("http://15.188.75.137/api/v1/getQuestions.php");
+    const response = await axios.get(
+      "http://localhost/article/article-server/api/v1/getQuestions.php"
+    );
+    // const response = await axios.get("http://15.188.75.137/api/v1/getQuestions.php");
     const data = response.data;
     if (data.success) {
       displayQuestions(data.questions);
