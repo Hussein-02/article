@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       const response = await axios.post(
-        "http://15.188.75.137/api/v1/signup.php",
+        "http://localhost/article/article-server/api/v1/signup.php",
         {
           fullname: fullname,
           email: email,
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const token = response.data.token;
         localStorage.setItem("token", token);
 
-        window.location.href = "/home.html";
+        window.location.href = "./home.html";
       } else {
         alert(response.data.message);
       }

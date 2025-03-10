@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const password = document.getElementById("password").value;
     try {
       const response = await axios.post(
-        "http://15.188.75.137/api/v1/login.php",
+        "http://localhost/article/article-server/api/v1/login.php",
         {
           email: email,
           password: password,
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const token = response.data.token;
         localStorage.setItem("token", token);
 
-        window.location.href = "/home.html";
+        window.location.href = "./home.html";
       } else {
         alert(response.data.message);
       }
